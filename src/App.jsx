@@ -51,7 +51,7 @@ function App() {
           <div className='flex justify-between mt-2'>
             <button
               onClick={() => tweet()}
-              className='px-6 py-2 bg-gray-900 rounded-md text-white shadow-btn hover:translate-y-1 hover:shadow-none hover:text-blue-400'
+              className='px-6 py-2 bg-gray-900 rounded-md text-white shadow-btn active:translate-y-1 active:shadow-none active:text-blue-400'
             >
               <FaTwitter className='text-sm' />
             </button>
@@ -60,7 +60,7 @@ function App() {
                 setIsFetching(true)
                 getQuote().then(() => setIsFetching(false))
               }}
-              className='px-6 py-2 bg-gray-900 rounded-md text-white text-sm relative shadow-btn hover:translate-y-1 hover:shadow-none'
+              className='px-6 py-2 bg-gray-900 rounded-md text-white text-sm relative shadow-btn active:translate-y-1 active:shadow-none'
             >
               <CgSpinner
                 className={`animate-spin absolute left-[44%] text-xl ${
