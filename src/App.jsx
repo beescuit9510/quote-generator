@@ -18,6 +18,12 @@ function App() {
       })
       .catch(console.log)
 
+  const tweet = () => {
+    const text = `${quote} - ${author}`
+    const url = `https://twitter.com/intent/tweet?text=${text}`
+    window.open(url, '_blank')
+  }
+
   useEffect(() => {
     getQuote().then(() => setIsLoading(false))
   }, [])
@@ -43,7 +49,10 @@ function App() {
             {author}
           </p>
           <div className='flex justify-between mt-2'>
-            <button className='px-6 py-2 bg-gray-900 rounded-md text-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.7)]'>
+            <button
+              onClick={() => tweet()}
+              className='px-6 py-2 bg-gray-900 rounded-md text-white shadow-btn hover:translate-y-1 hover:shadow-none hover:text-blue-400'
+            >
               <FaTwitter className='text-sm' />
             </button>
             <button
@@ -51,7 +60,7 @@ function App() {
                 setIsFetching(true)
                 getQuote().then(() => setIsFetching(false))
               }}
-              className='px-6 py-2 bg-gray-900 rounded-md text-white shadow-lg text-sm relative'
+              className='px-6 py-2 bg-gray-900 rounded-md text-white text-sm relative shadow-btn hover:translate-y-1 hover:shadow-none'
             >
               <CgSpinner
                 className={`animate-spin absolute left-[44%] text-xl ${
